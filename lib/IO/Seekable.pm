@@ -95,7 +95,6 @@ Derived from FileHandle.pm by Graham Barr E<lt>gbarr@pobox.comE<gt>
 =cut
 
 use 5.006_001;
-use Carp;
 use strict;
 our($VERSION, @EXPORT, @ISA);
 use IO::Handle ();
@@ -109,6 +108,8 @@ require Exporter;
 
 $VERSION = "1.10";
 $VERSION = eval $VERSION;
+
+BEGIN { sub croak($) { require Carp; Carp::croak(@_) } }
 
 sub seek {
     @_ == 3 or croak 'usage: $io->seek(POS, WHENCE)';

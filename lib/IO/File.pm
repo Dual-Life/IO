@@ -127,7 +127,6 @@ Derived from FileHandle.pm by Graham Barr E<lt>F<gbarr@pobox.com>E<gt>.
 use 5.006_001;
 use strict;
 our($VERSION, @EXPORT, @EXPORT_OK, @ISA);
-use Carp;
 use Symbol;
 use SelectSaver;
 use IO::Seekable;
@@ -139,6 +138,8 @@ require Exporter;
 $VERSION = "1.16";
 
 @EXPORT = @IO::Seekable::EXPORT;
+
+BEGIN { sub croak($) { require Carp; Carp::croak(@_) } }
 
 eval {
     # Make all Fcntl O_XXX constants available for importing

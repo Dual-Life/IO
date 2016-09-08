@@ -11,11 +11,12 @@ require 5.006;
 
 use IO::Handle;
 use Socket 1.3;
-use Carp;
 use strict;
 our(@ISA, $VERSION, @EXPORT_OK);
 use Exporter;
 use Errno;
+
+BEGIN { sub croak($) { require Carp; Carp::croak(@_) } }
 
 # legacy
 

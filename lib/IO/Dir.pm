@@ -9,7 +9,6 @@ package IO::Dir;
 use 5.006;
 
 use strict;
-use Carp;
 use Symbol;
 use Exporter;
 use IO::File;
@@ -22,6 +21,8 @@ use File::Spec;
 $VERSION = "1.10";
 $VERSION = eval $VERSION;
 @EXPORT_OK = qw(DIR_UNLINK);
+
+BEGIN { sub croak($) { require Carp; Carp::croak(@_) } }
 
 sub DIR_UNLINK () { 1 }
 
