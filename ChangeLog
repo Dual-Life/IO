@@ -1,3 +1,7 @@
+IO 1.41 - Jan 20 2020 - Todd Rinaldo
+  * Switch pre-release testing to github actions.
+  * Update MANIFEST with new test.
+
 IO 1.41_50 -- Dec 16 2019 - Ricardo Signes
   * [ TRIAL RELEASE ]
   * Loading IO is now threadsafe, avoiding the core bug reported as GH #14816.
